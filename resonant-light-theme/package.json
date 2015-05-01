@@ -1,0 +1,19 @@
+{
+    "name": "resonant-light-theme",
+    "title": "Resonant Light",
+    "description": "Light theme, with dark UI elements. Uses SourceSansPro for comments. Font smoothing is set to sub-pixel for better rendering on Mac OSX. 0.1.2 - Added Documents Toolbar Styles",
+    "homepage": "https://github.com/consonance/resonant-light-theme",
+    "version": "0.1.2",
+    "author": "Consonance",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/consonance/resonant-light-theme"
+    },
+    "theme": {
+        "file": "theme.css",
+        "dark": true,
+        "addModeClass": true
+    },
+    "keywords": ["theme"]
+}

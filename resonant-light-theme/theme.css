@@ -1,0 +1,260 @@
+/*
+Resonant Light Theme
+Version: 0.1.2
+*/
+/*
+Global
+*/
+* {
+  -webkit-font-smoothing: subpixel-antialiased;
+  /* Set font-smoothing for more readable text */
+}
+.CodeMirror,
+.CodeMirror-scroll {
+  background: #fcfcfc;
+  color: #444444;
+  font-family: 'SourceCodePro';
+  line-height: 1.2;
+}
+/*
+Code UI Elements
+*/
+.CodeMirror-cursor {
+  border-left: 1px solid #000 !important;
+}
+.CodeMirror pre {
+  padding: 1px 7px;
+}
+.CodeMirror-gutters {
+  background-color: #000;
+  padding: 0 0 0 3px !important;
+}
+.CodeMirror .CodeMirror-selected {
+  background: #deeeff;
+}
+.CodeMirror-searching {
+  background: #ffb400;
+  display: inline-block;
+  padding: 5px 5px;
+  border-radius: 5px;
+  box-shadow: none;
+  color: #fff !important;
+}
+.CodeMirror-searching.searching-current-match {
+  background: #ffd800;
+  color: #fff !important;
+  box-shadow: none;
+  border: none;
+}
+.CodeMirror-focused .CodeMirror-activeline .CodeMirror-gutter-elt {
+  background: #26c1fa;
+  color: #fff;
+  border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px;
+  font-size: 100%;
+  line-height: 1.3;
+  padding-left: 4px;
+}
+.CodeMirror-focused .CodeMirror-activeline .CodeMirror-gutter-elt + .CodeMirror-gutter-elt {
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0;
+}
+.CodeMirror-focused .CodeMirror-activeline .inline-widget .CodeMirror-gutter-elt {
+  background: #26c1fa;
+  color: #fff;
+}
+.CodeMirror-linenumber {
+  color: #aaa;
+  text-align: right;
+  font-size: 80%;
+  line-height: 1.75;
+}
+.CodeMirror-overwrite .CodeMirror-cursor {
+  border-left: none !important;
+  border-bottom: 1px solid #ff0000;
+}
+.CodeMirror-activeline-background {
+  background: transparent;
+}
+/*
+Code Syntax
+*/
+.CodeMirror .cm-atom {
+  /* Atribute value ex. #f00 in color:#f00; */
+  color: #033ffc;
+}
+.CodeMirror .cm-def {
+  /* Variable definition */
+  color: #0226a8;
+}
+.CodeMirror .cm-number {
+  /* Numbers */
+  color: #0226a8;
+}
+.CodeMirror .cm-variable {
+  /* Variable name ex. class Variable_name */
+  color: #444444;
+}
+.CodeMirror .cm-variable-2 {
+  /* Variable declaration ex. $variable */
+  color: #444444;
+}
+.CodeMirror .cm-property {
+  /* Property ex. color in color:#f00; */
+  color: #3A55B5;
+}
+.CodeMirror .cm-operator {
+  /* Operators ex. dots (:) between property and atom value */
+  color: #ff0077;
+}
+.CodeMirror .cm-comment {
+  /* Comment */
+  color: #748BA1;
+  font-family: 'SourceSansPro-Light';
+  font-size: 108%;
+}
+.CodeMirror .cm-string {
+  /*String elements ex. "description" in name="description" - including quotation */
+  color: #4D74F0;
+}
+.CodeMirror .cm-meta {
+  /* Meta elements like ex.: <!DOCTYPE html> */
+  color: #0226a8;
+}
+.CodeMirror .cm-qualifier,
+.CodeMirror .cm-builtin {
+  /* Final qualifier like css class ex.: .cm-qualifier */
+  color: #ff0077;
+}
+.CodeMirror .cm-tag {
+  /* Tags ex.<ul> <p> <div> */
+  color: #65B7B8;
+  font-family: 'SourceCodePro-Light';
+}
+.CodeMirror .cm-attribute {
+  /*Attribute ex. rel, href, name*/
+  color: #0226a8;
+}
+.CodeMirror .cm-keyword {
+  /* Element call ex. array, class, public function, if, elseif, !important*/
+  color: #f72900;
+  font-family: 'SourceCodePro-Light';
+}
+.CodeMirror-matchingbracket,
+.CodeMirror-matchingtag {
+  background: #ffeeee;
+  box-shadow: inset 0px -1px 0px 0px #ffcccc;
+}
+/*
+Code Folding Extension
+*/
+.CodeMirror-foldgutter-open:after {
+  content: ">";
+  color: #1f7ef4;
+  font-size: 95%;
+}
+.CodeMirror-foldgutter-folded:after {
+  content: "\2026";
+  color: #ffc600;
+  font-family: 'SourceCodePro-Light';
+}
+.CodeMirror-foldgutter,
+.CodeMirror-foldgutter-open,
+.CodeMirror-foldgutter-folded,
+.CodeMirror-folgutter-blank {
+  text-align: center;
+  line-height: 1.3;
+  cursor: pointer !important;
+}
+.CodeMirror-foldmarker {
+  padding: 0 10px 1px 10px;
+  margin-left: 3px;
+  border-radius: 5px;
+  cursor: pointer;
+  border: none;
+  color: #fff;
+  background-color: #2b303d;
+}
+.CodeMirror-foldmarker:after {
+  content: "More\2026";
+  font-size: 90%;
+  font-family: 'SourceSansPro-Lightit';
+}
+/*
+Show White Space Extnesion
+*/
+.cm-dk-whitespace-space:before,
+.cm-dk-whitespace-tab:before {
+  background-color: #ccdae7;
+}
+.cm-dk-whitespace-leading-space:before,
+.cm-dk-whitespace-leading-tab:before {
+  background-color: #ccdae7;
+}
+.cm-dk-whitespace-trailing-space:before,
+.cm-dk-whitespace-trailing-tab:before {
+  background-color: #ff0000;
+}
+/*
+CSS Color Preview
+*/
+.ico-cssColorPreview {
+  border-radius: 50%;
+  width: 0.5em;
+  height: 0.5em;
+  border: none;
+  margin-bottom: 0.2em;
+}
+/*
+Tabs
+*/
+.ext-documents {
+  padding: 0 2px;
+  background: #000;
+}
+.ext-documents .document {
+  padding: 3px 2em 3px 10px;
+  text-align: center;
+  line-height: 1.4;
+  margin: 0 2px 0 0;
+  color: #fff;
+  background: #555;
+  border-radius: 5px;
+  font-family: 'SourceSansPro-Light';
+  background: #333;
+  transition: none;
+  opacity: 1;
+  color: #aaa;
+  overflow: hidden;
+}
+.ext-documents .document.selected {
+  color: #fff;
+  background: #26c1fa;
+  transition: none;
+}
+.ext-documents .document.changed {
+  box-shadow: none;
+  background: #ffc400;
+  transition: none;
+}
+.ext-documents .document-close {
+  color: #111;
+  transition: none;
+  cursor: pointer;
+  opacity: 1;
+  line-height: 1.5;
+  text-align: center;
+}
+.ext-documents .document.selected .document-close {
+  color: #75daff;
+}
+.ext-documents .document.changed .document-close {
+  color: #fff;
+}
+.ext-documents .document-close:hover,
+.ext-documents .button-icon:hover {
+  color: #555;
+  opacity: 1;
+  transition: none;
+}
