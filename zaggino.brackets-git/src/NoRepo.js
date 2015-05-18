@@ -88,10 +88,11 @@ define(function (require) {
 
     function handleGitClone() {
         var $gitPanel = $("#git-panel");
+        var $cloneButton = $gitPanel.find(".git-clone");
+        $cloneButton.prop("disabled", true);
         isProjectRootEmpty().then(function (isEmpty) {
             if (isEmpty) {
                 return Utils.askQuestion(Strings.CLONE_REPOSITORY, Strings.ENTER_REMOTE_GIT_URL).then(function (remoteGitUrl) {
-                    $gitPanel.find(".git-clone").prop("disabled", true);
                     return ProgressDialog.show(Git.clone(remoteGitUrl, "."))
                         .then(function () {
                             EventEmitter.emit(Events.REFRESH_ALL);
@@ -103,6 +104,8 @@ define(function (require) {
             }
         }).catch(function (err) {
             ErrorHandler.showError(err);
+        }).finally(function () {
+            $cloneButton.prop("disabled", false);
         });
     }
 
@@ -114,7 +117,10 @@ define(function (require) {
         handleGitClone();
     });
     EventEmitter.on(Events.GIT_NO_BRANCH_EXISTS, function () {
-        commitGitIgnore();
+        commitGitIgnore()
+            .then(function () {
+                EventEmitter.emit(Events.REFRESH_ALL);
+            });
     });
 
 });

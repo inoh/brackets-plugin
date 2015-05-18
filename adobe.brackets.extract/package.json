@@ -3,7 +3,7 @@
   "title": "Extract for Brackets (Preview)",
   "homepage": "http://www.adobe.com/go/e4b_help",
   "author": "Adobe",
-  "version": "0.7.0-1769-release",
+  "version": "0.7.2-1724-release",
   "keywords": [
     "PSDLens",
     "Extract",
@@ -42,6 +42,6 @@
     "lodash": "2.4.1"
   },
   "scripts": {
-    "install": "bash -c 'cd lib/vanilla-extract; npm install; grunt sass; stylus public/css public/js/ccweb.files.extract/css'"
+    "install": "bash -c 'cd lib/graphite-api; npm install; grunt sass; stylus public/css public/js/ccweb.files.extract/css'"
   }
 }

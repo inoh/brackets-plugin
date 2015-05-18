@@ -71,10 +71,6 @@ define(["text!./license.html"], function (licenseText) {
         "GET_STARTED_DESCRIPTION":          "Once you sign in with your Adobe ID, you can upload a PSD or view your already-uploaded PSDs and start extracting design information and assets.",
         "SIGN_UP":                          "Don't have an account?",
         "SIGN_UP_LINK":                     "Get a free account.",
-        "CREATIVE_URL_LABEL":               "Paste a Creative Cloud Shared Link",
-        "CREATIVE_URL_INVALID":             "\'<span class='dialog-filename'>{0}</span>\' is not a valid Creative Cloud Shared Link (ie. Adobe.ly short URL).  Click <a href='{HELP_SHARED_LINK_URL}'>here</a> to learn how to share files from your Creative Cloud account.",
-        "CREATIVE_URL_DESCRIPTION":         "Or simply open a PSD without signing in by pasting in a Creative Cloud Shared Link. <a href='{HELP_SHARED_LINK_URL}'>More about Creative Cloud Shared Link.</a>",
-        "RESOLVING_CREATIVE_URL":           "Resolving \"{0}\"\u2026",
 
         "UNSUPPORTED_BLEND_MODES":          "Your file contains unsupported blend modes. Rendering may be inaccurate.",
 

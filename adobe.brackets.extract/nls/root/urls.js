@@ -26,6 +26,5 @@
 define({
     "EULA_URL":             "http://www.adobe.com/go/terms",
     "PRIVACY_URL":          "http://adobe.com/go/e4b_privacy_en",
-    "HELP_ONLINE_URL":      "http://www.adobe.com/go/e4b_help",
-    "HELP_SHARED_LINK_URL": "http://www.adobe.com/go/e4b_sharedlink_help"
+    "HELP_ONLINE_URL":      "http://www.adobe.com/go/e4b_help"
 });

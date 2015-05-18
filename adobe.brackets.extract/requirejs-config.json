@@ -1,35 +1,35 @@
 {
     "paths": {
-        "ccweb.files.extract": "lib/vanilla-extract/public/js/ccweb.files.extract",
+        "ccweb.files.extract": "lib/graphite-api/public/js/ccweb.files.extract",
 
         "jquery": "jquery-brackets",
-        "mpAjax": "lib/vanilla-extract/public/js/libs/jquery/jquery.mxhr",        
-        "underscore": "lib/vanilla-extract/public/js/libs/underscore/underscore-min",
-        "backbone": "lib/vanilla-extract/public/js/libs/backbone/backbone-min",
-        "zeroclipboard": "lib/vanilla-extract/public/js/libs/ZeroClipboard.min",
-        "text": "lib/vanilla-extract/public/js/libs/require/text",
+        "mpAjax": "lib/graphite-api/public/js/libs/jquery/jquery.mxhr",        
+        "underscore": "lib/graphite-api/public/js/libs/underscore/underscore-min",
+        "backbone": "lib/graphite-api/public/js/libs/backbone/backbone-min",
+        "zeroclipboard": "lib/graphite-api/public/js/libs/ZeroClipboard.min",
+        "text": "lib/graphite-api/public/js/libs/require/text",
         "i18n": "lib/i18n/i18n",
-        "modernizr": "lib/vanilla-extract/public/js/libs/modernizr",
-        "translate": "lib/vanilla-extract/public/js/libs/translate",
+        "modernizr": "lib/graphite-api/public/js/libs/modernizr",
+        "translate": "lib/graphite-api/public/js/libs/translate",
         "mixpanel": "lib/mixpanel-2.2",
         "adobeid": "ims/adobeid",
 
-        "app": "lib/vanilla-extract/public/js/app",
-        "cceco": "lib/vanilla-extract/public/js/cceco",
-        "collections": "lib/vanilla-extract/public/js/collections",
-        "config": "lib/vanilla-extract/public/js/config",
-        "controllers": "lib/vanilla-extract/public/js/controllers",
-        "models": "lib/vanilla-extract/public/js/models",
-        "routes": "lib/vanilla-extract/public/js/routes",
-        "utils": "lib/vanilla-extract/public/js/utils",
-        "views": "lib/vanilla-extract/public/js/views",
+        "app": "lib/graphite-api/public/js/app",
+        "cceco": "lib/graphite-api/public/js/cceco",
+        "collections": "lib/graphite-api/public/js/collections",
+        "config": "lib/graphite-api/public/js/config",
+        "controllers": "lib/graphite-api/public/js/controllers",
+        "models": "lib/graphite-api/public/js/models",
+        "routes": "lib/graphite-api/public/js/routes",
+        "utils": "lib/graphite-api/public/js/utils",
+        "views": "lib/graphite-api/public/js/views",
 
         "config-json": "config/config-prod-testing.json",
 
         "override": ".",
         "ext": ".",
         "plugin-dependencies": "pluginshim/plugin-dependencies",
-        "plugin-components": "lib/vanilla-extract/public/js/libs/pluginshim"
+        "plugin-components": "lib/graphite-api/public/js/libs/pluginshim"
     },
 
     "shim": {
@@ -51,7 +51,7 @@
     
     "map": {
         "*": {
-            "css": "lib/vanilla-extract/public/js/libs/require/css/css",
+            "css": "lib/graphite-api/public/js/libs/require/css/css",
             "routes/appRouter": "override/routes/BracketsAppRouter",
             "serverAPI": "override/BracketsServerAPI",
             "ccweb.files.extract/serverAPI": "override/BracketsServerAPI",
@@ -82,7 +82,7 @@
             "ccweb.files.extract/css/topcoat.css": "override/styles/topcoat.css" 
         },
         "override/BracketsServerAPI": {
-            "serverAPI": "lib/vanilla-extract/public/js/serverAPI"
+            "serverAPI": "lib/graphite-api/public/js/serverAPI"
         },
         "override/cceco/BracketsImageServiceAPI": {
             "cceco/ImageServiceAPI": "cceco/ImageServiceAPI"        

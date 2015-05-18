@@ -483,16 +483,62 @@ define(function (require, exports) {
     }
 
     function _getStagedDiffForCommitMode(commitMode, files) {
+
         if (commitMode === COMMIT_MODE.ALL) {
-            return Git.getDiffOfAllIndexFiles();
-        } else if (commitMode === COMMIT_MODE.CURRENT) {
-            if (files !== undefined && _.isArray(files)) {
-                // TODO: what if files.length > 1 ?
+            return _getStaggedDiffForAllFiles();
+        }
+
+        if (commitMode === COMMIT_MODE.CURRENT && _.isArray(files)) {
+            if (files.length > 1) {
+                return Promise.reject("_getStagedDiffForCommitMode() got files.length > 1");
+            }
+
+            var isUntracked = files[0].status.indexOf(Git.FILE_STATUS.UNTRACKED) !== -1;
+            if (isUntracked) {
+                return _getDiffForUntrackedFiles(files[0].file);
+            } else {
                 return Git.getDiffOfAllIndexFiles(files[0].file);
             }
-            return Git.getDiffOfAllIndexFiles();
         }
+
         return Git.getDiffOfStagedFiles();
+    }
+
+    function _getStaggedDiffForAllFiles() {
+        return Git.status().then(function (statusFiles) {
+            var untrackedFiles = [];
+            var fileArray = [];
+
+            statusFiles.forEach(function (fileObject) {
+                var isUntracked = fileObject.status.indexOf(Git.FILE_STATUS.UNTRACKED) !== -1;
+                if (isUntracked) {
+                    untrackedFiles.push(fileObject.file);
+                } else {
+                    fileArray.push(fileObject.file);
+                }
+            });
+
+            if (untrackedFiles.length > 0) {
+                return _getDiffForUntrackedFiles(fileArray.concat(untrackedFiles));
+            } else {
+                return Git.getDiffOfAllIndexFiles(fileArray);
+            }
+        });
+    }
+
+    function _getDiffForUntrackedFiles(files) {
+        var diff;
+        return Git.stage(files, false)
+            .then(function () {
+                return Git.getDiffOfStagedFiles();
+            })
+            .then(function (_diff) {
+                diff = _diff;
+                return Git.resetIndex();
+            })
+            .then(function () {
+                return diff;
+            });
     }
 
     // whatToDo gets values "continue" "skip" "abort"
@@ -1097,7 +1143,8 @@ define(function (require, exports) {
             PUSH_CMD           = "brackets-git.push",
             PULL_CMD           = "brackets-git.pull",
             GOTO_PREV_CHANGE   = "brackets-git.gotoPrevChange",
-            GOTO_NEXT_CHANGE   = "brackets-git.gotoNextChange";
+            GOTO_NEXT_CHANGE   = "brackets-git.gotoNextChange",
+            REFRESH_GIT        = "brackets-git.refreshAll";
 
         // Add command to menu.
         // Register command for opening bottom panel.
@@ -1124,6 +1171,9 @@ define(function (require, exports) {
 
         CommandManager.register(Strings.GOTO_NEXT_GIT_CHANGE, GOTO_NEXT_CHANGE, GutterManager.goToNext);
         KeyBindingManager.addBinding(GOTO_NEXT_CHANGE, Preferences.get("gotoNextChangeShortcut"), brackets.platform);
+
+        CommandManager.register(Strings.REFRESH_GIT, REFRESH_GIT, EventEmitter.emitFactory(Events.REFRESH_ALL));
+        KeyBindingManager.addBinding(REFRESH_GIT, Preferences.get("refreshShortcut"), brackets.platform);
 
         // Init moment - use the correct language
         moment.lang(brackets.getLocale());

@@ -154,3 +154,41 @@
         cursor: pointer;
     }
 }
+
+#login-call-to-action-callout {
+    max-width: 200px;
+    margin-top: 20px;
+
+    .call_to_action_header {
+        padding: 4px 0 10px 0;
+    }
+
+    .cclogo {
+        float: left;
+        background: url(img/cc-logo-large.svg) no-repeat;
+        width: 25px;
+        height: 18px;
+        margin: 10px 10px 10px 0;
+    }
+
+    .call_to_action_title {
+        height: 100%;
+        vertical-align: middle
+    }
+
+    button {
+        float: right;
+    }
+}
+
+#login-call-to-action-callout:after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    top: -13px;
+    left: 10px;
+    border-bottom: 13px solid @bc-info-popup-bg;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+}

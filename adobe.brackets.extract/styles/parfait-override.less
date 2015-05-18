@@ -181,7 +181,7 @@
     
     .del-button {
         body.dark & {
-            background: url(../lib/vanilla-extract/public/images/trash-icon.svg) no-repeat 0 -24px;
+            background: url(../lib/graphite-api/public/images/trash-icon.svg) no-repeat 0 -24px;
         }
     }
     
@@ -352,14 +352,12 @@
 }
 
 .visible-button {
-    background: url("../lib/vanilla-extract/public/js/ccweb.files.extract/images/cc-extract-sprite.svg") no-repeat 0 -140px;
+    background: url("../lib/graphite-api/public/js/ccweb.files.extract/images/cc-extract-sprite.svg") no-repeat 0 -140px;
     left: 9px;
 }
 
 .layers-list {
     overflow: visible;
-    outline: 0;
-
 }
 
 .layer-group-item .folder {
@@ -368,7 +366,7 @@
     float: left;
     margin-right: 6px;
     vertical-align: middle;
-    background-image: url("../lib/vanilla-extract/public/js/ccweb.files.extract/images/cc-extract-sprite.svg");
+    background-image: url("../lib/graphite-api/public/js/ccweb.files.extract/images/cc-extract-sprite.svg");
     background-repeat: no-repeat;
     background-position: 0 -120px;
     width: 20px;
@@ -378,7 +376,7 @@
 }
 
 .layer-group-item.closed .folder {
-    background-image: url("../lib/vanilla-extract/public/js/ccweb.files.extract/images/cc-extract-sprite.svg");
+    background-image: url("../lib/graphite-api/public/js/ccweb.files.extract/images/cc-extract-sprite.svg");
     background-repeat: no-repeat;
     background-position: 0 -100px;
     width: 20px;
@@ -397,16 +395,12 @@
 }
 
 .layer-item .image-wrapper {
-    background-image: url("../lib/vanilla-extract/public/js/ccweb.files.extract/images/checker.svg");
-}
-
-.layer-group-item .image-wrapper {
-    background-image: url("../lib/vanilla-extract/public/js/ccweb.files.extract/images/checker.svg");
+    background-image: url("../lib/graphite-api/public/js/ccweb.files.extract/images/checker.png");
 }
 
 .xOffsetIcon,
 .yOffsetIcon {
-    background: url(../lib/vanilla-extract/public/js/ccweb.files.extract/images/measurement-arrows.png) no-repeat;
+    background: url(../lib/graphite-api/public/js/ccweb.files.extract/images/measurement-arrows.png) no-repeat;
 }
 
 .xOffsetIcon {
@@ -506,7 +500,7 @@
 }
 
 .sprite_preview {
-    background: url("../lib/vanilla-extract/public/js/ccweb.files.extract/images/light_checker_bg.png");
+    background: url("../lib/graphite-api/public/js/ccweb.files.extract/images/light_checker_bg.png");
     background-size: 9%;
 }
 
@@ -746,7 +740,7 @@
 }
 
 .psd-preview-view .spinner {
-    background-image: url("../lib/vanilla-extract/public/js/ccweb.files.extract/images/files-item-spinner.gif");
+    background-image: url("../lib/graphite-api/public/js/ccweb.files.extract/images/files-item-spinner.gif");
 }
 
 /* fix position from parfait, fix clobbered style from brackets */
@@ -785,11 +779,11 @@
 }
 
 #psdpreview_root {
-  background: url("../lib/vanilla-extract/public/js/ccweb.files.extract/images/light_checker_bg.png");
+  background: url("../lib/graphite-api/public/js/ccweb.files.extract/images/light_checker_bg.png");
 }
 
 .derived-asset-list-item .image-wrapper {
-    background-image: url("../lib/vanilla-extract/public/js/ccweb.files.extract/images/checker.png");
+    background-image: url("../lib/graphite-api/public/js/ccweb.files.extract/images/checker.png");
 }
 
 /* override CSS rule that causes panel content to disappear at small sizes - #522 */
@@ -808,13 +802,4 @@
 /* PreferencesDialog ------------------------------------------------------- */
 .e4b-preferences-dialog .modal-footer a {
     padding: 5px;
-}
-
-/* Modal Dialog ------------------------------------------------------- */
-/* vanilla-extract inherits popup.scss from psd-extract which has a side effect on 
-Brackets modal dialogs. The following CSS fixes the issue. */
-.modal-wrapper {
-    border: none;
-    box-shadow: none;
-    background-color: transparent;
 }

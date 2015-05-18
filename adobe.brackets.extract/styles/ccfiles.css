@@ -55,7 +55,7 @@
 }
 
 .upload_tile_inner_frame #upload-icon {
-  background-image: url("../lib/vanilla-extract/public/images/drag-and-drop-tile-icons.svg");
+  background-image: url("../lib/graphite-api/public/images/drag-and-drop-tile-icons.svg");
   background-position: 0 0;
   height: 80px;
 }
