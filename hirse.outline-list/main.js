@@ -1,5 +1,3 @@
-/* global define, brackets, Mustache */
-
 define(function (require, exports, module) {
     "use strict";
 
@@ -71,8 +69,7 @@ define(function (require, exports, module) {
 
         showOutline();
 
-        var lines = doc.getText(false).split("\n");
-        var list = lang.getOutlineList(lines, prefs.get("args"), prefs.get("unnamed"));
+        var list = lang.getOutlineList(doc.getText(), prefs.get("args"), prefs.get("unnamed"));
 
         if (prefs.get("sort") && lang.compare) {
             list.sort(lang.compare);
@@ -139,16 +136,16 @@ define(function (require, exports, module) {
 
     function enableOutline() {
         $("#outline-toolbar-icon").addClass("enabled");
-        $(EditorManager).on("activeEditorChange", updateOutline);
-        $(DocumentManager).on("documentSaved", updateOutline);
+        EditorManager.on("activeEditorChange", updateOutline);
+        DocumentManager.on("documentSaved", updateOutline);
         updateOutline();
     }
 
     function disableOutline() {
         hideOutline();
         $("#outline-toolbar-icon").removeClass("enabled");
-        $(EditorManager).off("activeEditorChange", updateOutline);
-        $(DocumentManager).off("documentSaved", updateOutline);
+        EditorManager.off("activeEditorChange", updateOutline);
+        DocumentManager.off("documentSaved", updateOutline);
     }
 
     function toggleEnabled() {

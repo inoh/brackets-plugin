@@ -1,5 +1,3 @@
-/* global define, brackets */
-
 define(function (require, exports, module) {
     "use strict";
 
@@ -9,7 +7,7 @@ define(function (require, exports, module) {
         var $elements = [];
         if (indent) {
             var $indentation = $(document.createElement("span"));
-            $indentation.addClass("outline-entry-xml-indent");
+            $indentation.addClass("outline-entry-indent");
             var interpunct = "";
             for (var i = 0; i < indent; i++) {
                 interpunct += "·";
@@ -24,7 +22,7 @@ define(function (require, exports, module) {
             $elements.push($namespace);
         }
         var $name = $(document.createElement("span"));
-        $name.addClass("outline-entry-xml-name");
+        $name.addClass("outline-entry-name");
         $name.text(name);
         $elements.push($name);
         if (type && args) {
@@ -56,11 +54,12 @@ define(function (require, exports, module) {
 
     /**
      * Create the entry list of functions language dependent.
-     * @param   {Array}   lines         Array that contains the lines of text.
+     * @param   {Array}   text          Documents text with normalized line endings.
      * @param   {Boolean} showArguments args Preference.
      * @returns {Array}   List of outline entries.
      */
-    function getOutlineList(lines, showArguments) {
+    function getOutlineList(text, showArguments) {
+        var lines = text.split("\n");
         var regex = /^(\s*)<([\w]+:)?([\w.:-]+)(?:[^>]*?(id|class)=["']([\w- ]+)["'])?/g;
         var result = [];
         lines.forEach(function (line, index) {

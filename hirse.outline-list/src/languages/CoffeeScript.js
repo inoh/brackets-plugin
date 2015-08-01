@@ -5,19 +5,19 @@ define(function (require, exports, module) {
 
     function _getVisibilityClass(name) {
         if (name === unnamedPlaceholder) {
-            return " outline-entry-coffee-unnamed";
+            return " outline-entry-unnamed";
         }
-        return " outline-entry-coffee-" + (name[0] === "_" ? "private" : "public");
+        return " outline-entry-" + (name[0] === "_" ? "private" : "public");
     }
 
     function _createListEntry(name, args, line, ch) {
         var $elements = [];
         var $name = $(document.createElement("span"));
-        $name.addClass("outline-entry-coffee-name");
+        $name.addClass("outline-entry-name");
         $name.text(name);
         $elements.push($name);
         var $arguments = $(document.createElement("span"));
-        $arguments.addClass("outline-entry-coffee-arg");
+        $arguments.addClass("outline-entry-arg");
         $arguments.text(args);
         $elements.push($arguments);
         return {
@@ -31,12 +31,13 @@ define(function (require, exports, module) {
 
     /**
      * Create the entry list of functions language dependent.
-     * @param   {Array}   lines         Array that contains the lines of text.
+     * @param   {Array}   text          Documents text with normalized line endings.
      * @param   {Boolean} showArguments args Preference.
      * @param   {Boolean} showUnnamed   unnamed Preference.
      * @returns {Array}   List of outline entries.
      */
-    function getOutlineList(lines, showArguments, showUnnamed) {
+    function getOutlineList(text, showArguments, showUnnamed) {
+        var lines = text.split("\n");
         var regex = /(([\w\$]*)?\s*(?:=|:))?\s*(\([\w\$@,.'"= ]*\))?\s*(?:->|=>)/g;
         var result = [];
         lines.forEach(function (line, index) {

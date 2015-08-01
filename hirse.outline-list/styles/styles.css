@@ -90,6 +90,9 @@
     padding: 0;
 }
 
+
+/* ==== Outline Entries ==== */
+
 .outline-entry {
     color: #ffffff;
     padding-left: 27px;
@@ -102,9 +105,27 @@
 .outline-entry-icon:before {
     display: inline-block;
     font-family: Ionicons;
+    font-style: normal;
     margin-right: 3px;
     text-align: center;
     width: 12px;
+}
+
+.outline-hide-unnamed.outline-entry-unnamed {
+    display: none;
+}
+
+.outline-entry-indent {
+    color: #adb9bd;
+    font-family: Ionicons;
+}
+
+.outline-entry-arg {
+    color: #adb9bd;
+}
+
+.outline-hide-args .outline-entry-arg {
+    display: none;
 }
 
 
@@ -112,43 +133,41 @@
 
 
 /* JavaScript */
-.outline-entry-js-arg {
-    color: #adb9bd;
-}
-
-.outline-entry-js-private:before {
+.outline-entry-js.outline-entry-private:before {
     color: #229bf4;
     content: "\f200";
 }
 
-.outline-entry-js-public:before {
+.outline-entry-js.outline-entry-public:before {
     color: #9bf422;
     content: "\f276";
 }
 
-.outline-entry-js-unnamed:before {
+.outline-entry-js.outline-entry-unnamed:before {
     color: #f47b22;
     content: "\3bb";
     font-family: sans-serif;
 }
 
-
-/* CoffeeScript */
-.outline-entry-coffee-arg {
-    color: #adb9bd;
+.outline-entry-js.outline-entry-generator:before {
+    color: #f4229b;
+    content: "\f43d";
+    font-family: Ionicons;
 }
 
-.outline-entry-coffee-private:before {
+
+/* CoffeeScript */
+.outline-entry-coffee.outline-entry-private:before {
     color: #229bf4;
     content: "\f200";
 }
 
-.outline-entry-coffee-public:before {
+.outline-entry-coffee.outline-entry-public:before {
     color: #9bf422;
     content: "\f276";
 }
 
-.outline-entry-coffee-unnamed:before {
+.outline-entry-coffee.outline-entry-unnamed:before {
     color: #f47b22;
     content: "\3bb";
     font-family: sans-serif;
@@ -183,29 +202,29 @@
 
 
 /* PHP */
-.outline-entry-php-arg {
-    color: #adb9bd;
-}
-
-.outline-entry-php-private:before {
+.outline-entry-php.outline-entry-private:before {
     color: #229bf4;
     content: "\f200";
 }
 
-.outline-entry-php-protected:before {
+.outline-entry-php.outline-entry-protected:before {
     color: #4ab9ae;
     content: "\f219";
 }
 
-.outline-entry-php-public:before {
+.outline-entry-php.outline-entry-public:before {
     color: #9bf422;
     content: "\f276";
 }
 
-.outline-entry-php-unnamed:before {
+.outline-entry-php.outline-entry-unnamed:before {
     color: #f47b22;
     content: "\3bb";
     font-family: sans-serif;
+}
+
+.outline-entry-php.outline-entry-static {
+    font-style: italic;
 }
 
 
@@ -252,9 +271,4 @@
 .outline-entry-xml-id,
 .outline-entry-xml-class {
     color: #adb9bd;
-}
-
-.outline-entry-xml-indent {
-    color: #adb9bd;
-    font-family: Ionicons;
 }
